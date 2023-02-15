@@ -1,0 +1,24 @@
+<div class="title">
+  <h1>New Game</h1>
+</div>
+
+<div class="letters">
+  <%= @random_string_html.html_safe %>
+</div>
+
+<div class="text">
+  <p>What is the longest word you can find?</p>
+</div>
+
+<div class="form-container">
+  <div class="form-outline">
+    <form action="/score" method="post" data-turbo="false">
+      <div class="input-group">
+        <input name="word" type="text" class="form-control rounded" placeholder="What is your guess?" aria-label="Search" aria-describedby="search-addon" />
+        <button type="submit" class="btn btn-primary">Play</button>
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+        <%= hidden_field_tag :letters, @random_string %>
+      </div>
+    </form>
+  </div>
+</div>
